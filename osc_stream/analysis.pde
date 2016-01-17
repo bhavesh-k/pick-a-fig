@@ -170,3 +170,7 @@ void ending_average() {
   saveStrings("end_avg_b.txt",ending_average[1]);
   saveStrings("end_avg_t.txt",ending_average[2]);
 }
+
+void calc_results() {
+  
+}

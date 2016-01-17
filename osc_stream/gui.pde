@@ -18,6 +18,7 @@ public void btn_start_click(GButton source, GEvent event) { //_CODE_:btn_start:4
   println("btn_start - GButton >> GEvent." + event + " @ " + millis());
   started = true;
   // load the first image
+  removeGUI();
   img = loadImage("img\\0.jpg");
   image(img,0,0);
 } //_CODE_:btn_start:431744:
@@ -30,27 +31,31 @@ public void createGUI(){
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
-  surface.setTitle("Figure It Out");
-  lbl_1 = new GLabel(this, 566, 148, 39, 35);
+  surface.setTitle("Pick-a-Fig");
+  lbl_1 = new GLabel(this, 566, 198, 39, 35);
   lbl_1.setOpaque(true);
-  lbl_0 = new GLabel(this, 509, 211, 40, 37);
+  lbl_0 = new GLabel(this, 509, 261, 40, 37);
   lbl_0.setLocalColorScheme(GCScheme.RED_SCHEME);
   lbl_0.setOpaque(true);
-  lbl_2 = new GLabel(this, 648, 148, 39, 36);
+  lbl_2 = new GLabel(this, 648, 198, 39, 36);
   lbl_2.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   lbl_2.setOpaque(true);
-  lbl_3 = new GLabel(this, 708, 208, 40, 39);
+  lbl_3 = new GLabel(this, 708, 261, 40, 39);
   lbl_3.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   lbl_3.setOpaque(true);
-  lbl_check = new GLabel(this, 507, 36, 240, 69);
+  lbl_check = new GLabel(this, 508, 120, 240, 69);
   lbl_check.setText("Check that all electrodes are connected");
   lbl_check.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   lbl_check.setOpaque(true);
-  btn_start = new GButton(this, 562, 338, 136, 74);
+  btn_start = new GButton(this, 562, 388, 136, 74);
   btn_start.setText("START");
   btn_start.setTextBold();
   btn_start.setLocalColorScheme(GCScheme.RED_SCHEME);
   btn_start.addEventHandler(this, "btn_start_click");
+  lbl_title = new GLabel(this, 31, 29, 1221, 68);
+  lbl_title.setText("Are YOU a future engineer?");
+  lbl_title.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  lbl_title.setOpaque(true);
 }
 
 // Variable declarations 
@@ -61,3 +66,4 @@ GLabel lbl_2;
 GLabel lbl_3; 
 GLabel lbl_check; 
 GButton btn_start; 
+GLabel lbl_title; 

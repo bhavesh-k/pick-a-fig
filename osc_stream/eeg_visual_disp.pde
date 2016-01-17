@@ -9,6 +9,7 @@ void draw() {
     // if all the images are done, exit program
     if (curr_img == NUM_IMAGES) {
       ending_average();
+      calc_results();
       exit();
     }
     timeStep_a = 0; timeStep_b = 0; timeStep_t = 0; // reset for the next image
@@ -43,4 +44,20 @@ void saveFiles() {
 void change_image() {
   img = loadImage("img\\"+str(curr_img)+".jpg");
   image(img,0,0);
+}
+
+void removeGUI() {
+  lbl_0.setVisible(false);
+  lbl_1.setVisible(false);
+  lbl_2.setVisible(false);
+  lbl_3.setVisible(false);
+  lbl_check.setVisible(false);
+  btn_start.setVisible(false);
+}
+
+void update_electrodes(int[] isGood) {  
+  lbl_0.setText(str(isGood[0]));
+  lbl_1.setText(str(isGood[1]));
+  lbl_2.setText(str(isGood[2]));
+  lbl_3.setText(str(isGood[3]));
 }

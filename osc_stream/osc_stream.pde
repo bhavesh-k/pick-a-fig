@@ -1,5 +1,5 @@
 import g4p_controls.*;
-
+import java.awt.Font;
 import netP5.*;
 import oscP5.*;
 
@@ -10,6 +10,7 @@ OscP5 oscP5;
 void setup() {
   size(1280,720);
   createGUI();
+  lbl_title.setFont(new Font("Monospaced", Font.PLAIN, 36));
   frameRate(60);
   
   // listen for incoming messages
@@ -42,10 +43,7 @@ void oscEvent(OscMessage msg) {
           isGood[i] = msg.get(i).intValue();
         }
         
-        lbl_0.setVisible(boolean(isGood[0]));
-        lbl_1.setVisible(boolean(isGood[1]));
-        lbl_2.setVisible(boolean(isGood[2]));
-        lbl_3.setVisible(boolean(isGood[3]));
+        update_electrodes(isGood);
         
     }
   }
