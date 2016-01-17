@@ -172,5 +172,15 @@ void ending_average() {
 }
 
 void calc_results() {
+  float sum = 0.0F; int cnt = 0; float avg = 0.0F;
+  for (int i=0; i<NUM_IMAGES; i++) {
+    if (ending_average[0][i] != null) {
+      sum += float(ending_average[0][i]);
+      cnt++;
+    }
+  }
+  
+  avg = sum/cnt;
+  display_results(avg);
   
 }

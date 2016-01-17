@@ -10,11 +10,12 @@ void draw() {
     if (curr_img == NUM_IMAGES) {
       ending_average();
       calc_results();
-      exit();
     }
     timeStep_a = 0; timeStep_b = 0; timeStep_t = 0; // reset for the next image
     
-    change_image(); // bring the next image
+    if (curr_img <= NUM_IMAGES) {
+      change_image(); // bring the next image
+    }
   }
 }
 
@@ -52,6 +53,7 @@ void removeGUI() {
   lbl_2.setVisible(false);
   lbl_3.setVisible(false);
   lbl_check.setVisible(false);
+  lbl_title.setVisible(false);
   btn_start.setVisible(false);
 }
 
@@ -60,4 +62,29 @@ void update_electrodes(int[] isGood) {
   lbl_1.setText(str(isGood[1]));
   lbl_2.setText(str(isGood[2]));
   lbl_3.setText(str(isGood[3]));
+}
+
+void display_results(float avg) {
+  String verdict = new String();
+  if (avg>=0 && avg<.25) {
+    verdict = "Engineering might not be for you";
+  }
+  else if (avg>=0.25 && avg<0.5) {
+    verdict = "You might be interested in Engineering";
+  }
+  else if (avg>=0.5 && avg<0.75) {
+    verdict = "You should consider Engineering as a career";
+  }
+  else {
+    verdict = "You were made for Engineering";
+  }
+  
+  background(255);
+  lbl_percent.setText("Your percentage interest in Engineering is " + str(int(avg*100))+"%");
+  lbl_percent.setVisible(true);
+  lbl_percent.setFont(new Font("Monospaced", Font.PLAIN, 36));
+  lbl_verdict.setText(verdict);
+  lbl_verdict.setVisible(true);
+  lbl_verdict.setFont(new Font("Monospaced", Font.PLAIN, 36));
+  btn_close.setVisible(true);
 }

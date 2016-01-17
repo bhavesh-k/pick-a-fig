@@ -23,6 +23,11 @@ public void btn_start_click(GButton source, GEvent event) { //_CODE_:btn_start:4
   image(img,0,0);
 } //_CODE_:btn_start:431744:
 
+public void btn_close_click(GButton source, GEvent event) { //_CODE_:btn_close:208199:
+  println("btn_close - GButton >> GEvent." + event + " @ " + millis());
+  exit();
+} //_CODE_:btn_close:208199:
+
 
 
 // Create all the GUI controls. 
@@ -40,14 +45,14 @@ public void createGUI(){
   lbl_2 = new GLabel(this, 648, 198, 39, 36);
   lbl_2.setLocalColorScheme(GCScheme.ORANGE_SCHEME);
   lbl_2.setOpaque(true);
-  lbl_3 = new GLabel(this, 708, 261, 40, 39);
+  lbl_3 = new GLabel(this, 705, 261, 40, 39);
   lbl_3.setLocalColorScheme(GCScheme.PURPLE_SCHEME);
   lbl_3.setOpaque(true);
-  lbl_check = new GLabel(this, 508, 120, 240, 69);
+  lbl_check = new GLabel(this, 511, 113, 240, 69);
   lbl_check.setText("Check that all electrodes are connected");
   lbl_check.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   lbl_check.setOpaque(true);
-  btn_start = new GButton(this, 562, 388, 136, 74);
+  btn_start = new GButton(this, 559, 360, 136, 74);
   btn_start.setText("START");
   btn_start.setTextBold();
   btn_start.setLocalColorScheme(GCScheme.RED_SCHEME);
@@ -55,7 +60,18 @@ public void createGUI(){
   lbl_title = new GLabel(this, 31, 29, 1221, 68);
   lbl_title.setText("Are YOU a future engineer?");
   lbl_title.setLocalColorScheme(GCScheme.CYAN_SCHEME);
-  lbl_title.setOpaque(true);
+  lbl_title.setOpaque(false);
+  lbl_percent = new GLabel(this, 29, 49, 1224, 93);
+  lbl_percent.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  lbl_percent.setOpaque(false);
+  lbl_verdict = new GLabel(this, 30, 166, 1222, 99);
+  lbl_verdict.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  lbl_verdict.setOpaque(false);
+  btn_close = new GButton(this, 559, 318, 137, 67);
+  btn_close.setText("CLOSE");
+  btn_close.setTextBold();
+  btn_close.setLocalColorScheme(GCScheme.RED_SCHEME);
+  btn_close.addEventHandler(this, "btn_close_click");
 }
 
 // Variable declarations 
@@ -67,3 +83,6 @@ GLabel lbl_3;
 GLabel lbl_check; 
 GButton btn_start; 
 GLabel lbl_title; 
+GLabel lbl_percent; 
+GLabel lbl_verdict; 
+GButton btn_close; 

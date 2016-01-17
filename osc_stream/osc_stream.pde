@@ -11,11 +11,12 @@ void setup() {
   size(1280,720);
   createGUI();
   lbl_title.setFont(new Font("Monospaced", Font.PLAIN, 36));
+  btn_close.setVisible(false);
   frameRate(60);
   
   // listen for incoming messages
   oscP5 = new OscP5(this, recvPort);
-  background(0); // black background
+  background(255); // black background
   
   // Other variables and parameters
   alpha = new String[4][NUM_PTS];
